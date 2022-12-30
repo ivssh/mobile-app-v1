@@ -6,27 +6,18 @@
   "commit": false,
   "contributors": [
     {
-      "login": "raj2611",
-      "name": "Sumant Raj",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/23263053?v=4",
-      "profile": "https://geekyants.com/",
-      "contributions": [
-        "code"
-      ]
-    },
-    {
-      "login": "madhav23bansal",
-      "name": "madhav23bansal",
-      "avatar_url": "https://avatars0.githubusercontent.com/u/52946553?v=4",
-      "profile": "https://github.com/madhav23bansal",
+      "login": "ivssh",
+      "name": "Abhilash Bolla",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2282894?v=4",
+      "profile": "https://mello.fun/",
       "contributions": [
         "code"
       ]
     }
   ],
   "contributorsPerLine": 7,
-  "projectName": "flutter-starter",
-  "projectOwner": "GeekyAnts",
+  "projectName": "mobile-app-v1",
+  "projectOwner": "Abhilash Bolla",
   "repoType": "github",
   "repoHost": "https://github.com",
   "skipCi": true
