@@ -13,7 +13,7 @@ class AuthenticationScreen extends StatefulWidget {
 class _AuthenticationScreenState extends State<AuthenticationScreen> {
   bool showLoginForm = false;
   // ignore: close_sinks
-  AuthenticationBloc authenticationBloc;
+  late AuthenticationBloc authenticationBloc;
   @override
   Widget build(BuildContext context) {
     void _showError(String error) async {

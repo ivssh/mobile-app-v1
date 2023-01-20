@@ -3,6 +3,7 @@ import 'package:app/src/config/image_constants.dart';
 import 'package:app/src/config/string_constants.dart' as string_constants;
 import 'package:app/src/utils/app_state_notifier.dart';
 import 'package:app/src/widgets/cache_image_widget.dart';
+import 'package:app/src/widgets/custom_video_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
@@ -12,10 +13,12 @@ import 'package:app/src/widgets/custom_bottom_app_bar.dart';
 import 'package:app/src/screens/addScreen/index.dart';
 import 'package:app/src/screens/profile/index.dart';
 import 'package:app/src/screens/search/index.dart';
+import 'package:shared/modules/posts/models/posts.dart';
 
 class HomeScreen extends StatelessWidget {
   // ignore: close_sinks
   static const routeName = '/';
+  List<Post> posts = Post.posts;
 
   final AuthenticationBloc authenticationBloc =
       AuthenticationBlocController().authenticationBloc;
@@ -33,8 +36,16 @@ class HomeScreen extends StatelessWidget {
                   appBar: _CustomAppBar(authenticationBloc: authenticationBloc),
                   bottomNavigationBar: CustomBottomAppBar(),
                   backgroundColor: Colors.black,
-                  body: Container(
-                    child: Text('/home'),
+                  extendBodyBehindAppBar: true,
+                  body: SingleChildScrollView(
+                    child: ListView(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      padding: EdgeInsets.zero,
+                      children: posts.map((post) {
+                        return CustomVideoPlayer(post: post);
+                      }).toList(),
+                    ),
                   ),
                   drawer: Drawer(
                     child: ListView(
@@ -112,8 +123,8 @@ class HomeScreen extends StatelessWidget {
 
 class _CustomAppBar extends StatelessWidget with PreferredSizeWidget {
   const _CustomAppBar({
-    Key key,
-    @required this.authenticationBloc,
+    Key? key,
+    required this.authenticationBloc,
   }) : super(key: key);
 
   final AuthenticationBloc authenticationBloc;

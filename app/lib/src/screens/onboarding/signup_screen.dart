@@ -4,7 +4,7 @@ import 'package:shared/main.dart';
 class SignUpForm extends StatefulWidget {
   final AuthenticationBloc authenticationBloc;
   final AuthenticationState state;
-  SignUpForm({this.authenticationBloc, this.state});
+  SignUpForm({required this.authenticationBloc, required this.state});
   @override
   _SignUpFormState createState() => _SignUpFormState();
 }
@@ -31,7 +31,7 @@ class _SignUpFormState extends State<SignUpForm> {
             keyboardType: TextInputType.emailAddress,
             autocorrect: false,
             validator: (value) {
-              if (value.isEmpty) {
+              if (value!.isEmpty) {
                 return 'Email is required.';
               }
               return null;
@@ -49,7 +49,7 @@ class _SignUpFormState extends State<SignUpForm> {
             obscureText: true,
             controller: _passwordController,
             validator: (value) {
-              if (value.isEmpty) {
+              if (value!.isEmpty) {
                 return 'Password is required.';
               }
               return null;
@@ -62,14 +62,14 @@ class _SignUpFormState extends State<SignUpForm> {
               child: widget.state is AuthenticationLoading
                   ? CircularProgressIndicator(
                       backgroundColor:
-                          Theme.of(context).textTheme.bodyText1.color,
+                          Theme.of(context).textTheme.bodyText1!.color,
                     )
                   : Text(
                       'Sign Up',
                       style: Theme.of(context).textTheme.bodyText1,
                     ),
               onPressed: () {
-                if (_key.currentState.validate()) {
+                if (_key.currentState!.validate()) {
                   widget.authenticationBloc.add(UserSignUp(
                       email: _emailController.text,
                       password: _passwordController.text));
