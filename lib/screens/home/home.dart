@@ -2,19 +2,15 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_starter/shared/models/posts.dart';
-import 'package:flutter_starter/utils/app_state_notifier.dart';
 import 'package:flutter_starter/widgets/custom_bottom_app_bar.dart';
 import 'package:flutter_starter/widgets/custom_video_player.dart';
 import 'package:go_router/go_router.dart';
-import 'package:provider/provider.dart';
 
 import '../../common_export.dart';
 
 class HomeScreen extends StatefulWidget {
-  static const routeName = '/';
-  // List<Post> posts = Post.posts;
+  static const routeName = '/home';
 
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -24,6 +20,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   late final AuthenticationBloc authenticationBloc;
+  List<Post> posts = Post.posts;
   bool switchValue = false;
 
   @override
@@ -55,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 var posts=[];
                 return Scaffold(
                   appBar: _CustomAppBar(authenticationBloc: authenticationBloc),
-                  bottomNavigationBar: CustomBottomAppBar(),
+                  bottomNavigationBar: const CustomBottomAppBar(),
                   backgroundColor: Colors.black,
                   extendBodyBehindAppBar: true,
                   body: SingleChildScrollView(
@@ -106,7 +103,7 @@ class _CustomAppBar extends StatelessWidget with PreferredSizeWidget {
       ),
       actions: [
         IconButton(
-            icon: Icon(Icons.logout),
+            icon: const Icon(Icons.logout),
             onPressed: () {
               authenticationBloc.add(const UserLogOut());
             }),

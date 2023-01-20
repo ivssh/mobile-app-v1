@@ -22,7 +22,7 @@ class CustomBottomAppBar extends StatelessWidget {
           children: [
             IconButton(
               onPressed: () {
-                Navigator.popAndPushNamed(context, HomeScreen.routeName);
+                Navigator.pushNamed(context, HomeScreen.routeName);
               },
               color: Colors.white,
               iconSize: 30, 

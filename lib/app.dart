@@ -17,7 +17,7 @@ class App extends StatelessWidget {
         /// routes from routes.dart
         return MaterialApp.router(
           debugShowCheckedModeBanner: false,
-          title: 'Hello World!',
+          title: 'mello',
           theme: ThemeConfig.lightTheme,
           darkTheme: ThemeConfig.darkTheme,
           themeMode: state is SetTheme

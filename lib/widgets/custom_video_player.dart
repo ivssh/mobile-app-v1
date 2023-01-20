@@ -7,7 +7,7 @@ import 'package:visibility_detector/visibility_detector.dart';
 class CustomVideoPlayer extends StatefulWidget {
   final Post post;
 
-  const CustomVideoPlayer({
+  const CustomVideoPlayer({super.key, 
     required this.post,
   });
 

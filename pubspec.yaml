@@ -97,6 +97,7 @@ flutter:
     - assets/images/3.0x/logo.png
     - assets/images/login.png
     - assets/images/signup.png
+    - assets/videos/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
