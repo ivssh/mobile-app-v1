@@ -49,7 +49,6 @@ class _HomeScreenState extends State<HomeScreen> {
             bloc: authenticationBloc,
             builder: (BuildContext context, AuthenticationState state) {
               if (state is SetUserData) {
-                var posts=[];
                 return Scaffold(
                   appBar: _CustomAppBar(authenticationBloc: authenticationBloc),
                   bottomNavigationBar: const CustomBottomAppBar(),
@@ -113,17 +112,17 @@ class _CustomAppBar extends StatelessWidget with PreferredSizeWidget {
 
   TextButton _buildAppBarButton(BuildContext context, String text) {
     return TextButton(
-          onPressed: () {},
-          style: TextButton.styleFrom(fixedSize: const Size(100, 50)),
-          child: Text(
-            text,
-            style: Theme.of(context).textTheme.titleMedium?.copyWith(
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-          ),
+        onPressed: () {},
+        style: TextButton.styleFrom(fixedSize: const Size(100, 50)),
+        child: Text(
+          text,
+          style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
         ));
   }
-  
+
   @override
   // TODO: implement preferredSize
   Size get preferredSize => const Size.fromHeight(56.0);

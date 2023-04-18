@@ -3,13 +3,12 @@ import 'package:flutter_starter/screens/addScreen/index.dart';
 import 'package:flutter_starter/screens/home/home.dart';
 import 'package:flutter_starter/screens/profile/index.dart';
 import 'package:flutter_starter/screens/search/index.dart';
-
+import 'package:go_router/go_router.dart';
 
 class CustomBottomAppBar extends StatelessWidget {
   const CustomBottomAppBar({
     Key? key,
   }) : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {
@@ -21,37 +20,33 @@ class CustomBottomAppBar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             IconButton(
-              onPressed: () {
-                Navigator.pushNamed(context, HomeScreen.routeName);
-              },
-              color: Colors.white,
-              iconSize: 30, 
-              icon: const Icon(Icons.home_filled)
-            ),
+                onPressed: () {
+                  context.go(HomeScreen.routeName);
+                },
+                color: Colors.white,
+                iconSize: 30,
+                icon: const Icon(Icons.home_filled)),
             IconButton(
-              onPressed: () {
-                Navigator.popAndPushNamed(context, SearchScreen.routeName);
-              },
-              color: Colors.white,
-              iconSize: 30, 
-              icon: const Icon(Icons.search)
-            ),
+                onPressed: () {
+                  context.go(SearchScreen.routeName);
+                },
+                color: Colors.white,
+                iconSize: 30,
+                icon: const Icon(Icons.search)),
             IconButton(
-              onPressed: () {
-                Navigator.popAndPushNamed(context, AddScreen.routeName);
-              },
-              color: Colors.white,
-              iconSize: 30, 
-              icon: const Icon(Icons.add_circle)
-            ),
+                onPressed: () {
+                  context.go(AddScreen.routeName);
+                },
+                color: Colors.white,
+                iconSize: 30,
+                icon: const Icon(Icons.add_circle)),
             IconButton(
-              onPressed: () {
-                Navigator.popAndPushNamed(context, ProfileScreen.routeName);
-              },
-              color: Colors.white,
-              iconSize: 30, 
-              icon: const Icon(Icons.person)
-            )
+                onPressed: () {
+                  context.go(ProfileScreen.routeName);
+                },
+                color: Colors.white,
+                iconSize: 30,
+                icon: const Icon(Icons.person))
           ],
         ),
       ),
